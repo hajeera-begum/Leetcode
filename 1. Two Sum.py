@@ -24,8 +24,10 @@ class Solution(object):
         :type nums: List[int]
         :type target: int
         :rtype: List[int]
-        """
-        for i in range(len(nums)-1):
-            for j in range(i+1,len(nums)):
-                if nums[i]+nums[j]==target:
-                    return i,j
+        """        
+        seen={}
+        for index,value in enumerate(nums):
+            diff=target-value
+            if diff in seen:
+                return seen[diff],index
+            seen[value]=index

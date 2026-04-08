@@ -22,8 +22,5 @@ class Solution(object):
         :type num2: str
         :rtype: str
         """
-        n1=int(num1)
-        n2=int(num2)
-        add=n1+n2
-        return str(add)
+        return str(int(num1)+int(num2))
         

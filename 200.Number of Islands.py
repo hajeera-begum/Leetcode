@@ -33,7 +33,7 @@ grid[i][j] is '0' or '1'.'''
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        if len(grid)==0: 
+        if len(grid)==0: #Check if it is an empty grid
             return 0
         
         count = 0
@@ -41,7 +41,7 @@ class Solution:
             for j in range(len(grid[0])):
                 if grid[i][j]=='1':
                     dfs(grid,i,j,len(grid),len(grid[0]))
-                    count+=1 
+                    count+=1 #Increase count when found an island
         return count
 
 def dfs(grid,i,j,m,n):
@@ -49,6 +49,6 @@ def dfs(grid,i,j,m,n):
             return
     grid[i][j]='2'
     dfs(grid,i,j-1,m,n)
-    dfs(grid,i,j+1,m,n) 
-    dfs(grid,i-1,j,m,n) 
+    dfs(grid,i,j+1,m,n) #Move Right
+    dfs(grid,i-1,j,m,n) #Move Left
     dfs(grid,i+1,j,m,n)
